@@ -63,7 +63,7 @@ export function ProjectCard({
 
       <div className="p-6 pt-0 flex gap-4">
          <Link href={id ? `/projects/${id}` : "#"} className="w-1/2">
-          <ShimmerButton asChild
+          <ShimmerButton 
           className={cn(
             "px-6 py-4 w-full text-sm font-medium text-white bg-indigo-600 rounded-lg",
             "hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600",
@@ -76,14 +76,14 @@ export function ProjectCard({
 
         {githubLink && (
           <Button
-            asChild
+            
             variant="outline"
             className={cn(
               "px-6 py-6 rounded-full w-1/2 text-sm font-medium text-gray-900 dark:text-white border-gray-300 dark:border-gray-600",
               "hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300",
             )}
           >
-            <InteractiveHoverButton asChild>
+            <InteractiveHoverButton >
               <Link href="">Visit GitHub</Link>
             </InteractiveHoverButton>
           </Button>

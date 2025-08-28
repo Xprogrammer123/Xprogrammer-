@@ -24,7 +24,7 @@ export default function ProjectDetailsPage({ params }: { params: { id: string } 
 
       <h1 className="text-3xl font-bold">{project.title}</h1>
       <time className="text-sm text-gray-500">{project.dates}</time>
-      <p className="text-lg text-gray-700 dark:text-gray-300">{project.message || project.description}</p>
+      <p className="text-lg text-gray-700 dark:text-gray-300">{project.description}</p>
 
       {project.technologies?.length > 0 && (
         <div className="flex flex-wrap gap-2 mt-4">
@@ -36,13 +36,13 @@ export default function ProjectDetailsPage({ params }: { params: { id: string } 
 
       <div className="flex gap-4 mt-6">
         {githubLink && (
-          <Button asChild>
+          <Button >
             <Link href={githubLink.href} target="_blank">
               {githubLink.icon} GitHub
             </Link>
           </Button>
         )}
-        <Button asChild variant="outline">
+        <Button  variant="outline">
           <Link href="/#projects">← Back to Projects</Link>
         </Button>
       </div>

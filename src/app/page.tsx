@@ -87,12 +87,12 @@ export default function Page() {
             </TextAnimate>
 
             <div className="flex items-center justify-center gap-4 pt-4">
-              <ShimmerButton asChild>
+              <ShimmerButton >
                 <Link href="/FawasSakaCV.pdf" download>
                   Download CV
                 </Link>
               </ShimmerButton>
-              <InteractiveHoverButton asChild>
+              <InteractiveHoverButton >
                 <Link href={DATA.contact.social.GitHub.url}>Visit GitHub</Link>
               </InteractiveHoverButton>
             </div>
@@ -131,14 +131,12 @@ export default function Page() {
                 </p>
               </BlurFade>
 
-              <AnimatedList
-                items={[
-                  "💻 Building scalable full-stack apps",
-                  "⚡ Real-time monitoring systems",
-                  "🎨 Pixel-perfect UI/UX engineering",
-                  "🚀 Launching and scaling SaaS products",
-                ]}
-              />
+             <AnimatedList>
+  <div>💻 Building scalable full-stack apps</div>
+  <div>⚡ Real-time monitoring systems</div>
+  <div>🎨 Pixel-perfect UI/UX engineering</div>
+</AnimatedList>
+
             </div>
 
             {/* Right Column: Fun fact / Avatar / Extra flair */}
@@ -244,10 +242,10 @@ export default function Page() {
             Want to chat? Shoot me a DM on Twitter or connect via GitHub/Email.
           </TextAnimate>
           <div className="flex justify-center gap-4">
-            <ShimmerButton asChild>
+            <ShimmerButton >
               <Link href={`mailto:${DATA.contact.email}`}>Send Email</Link>
             </ShimmerButton>
-            <InteractiveHoverButton asChild>
+            <InteractiveHoverButton >
               <Link href={DATA.contact.social.LinkedIn?.url || "#"}>
                 Connect on LinkedIn
               </Link>

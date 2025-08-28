@@ -7,16 +7,17 @@ interface BlurFadeProps {
   children: React.ReactNode;
   className?: string;
   variant?: {
-    hidden: { y: number };
-    visible: { y: number };
+    hidden: { y: number; opacity?: number; filter?: string };
+    visible: { y: number; opacity?: number; filter?: string };
   };
   duration?: number;
   delay?: number;
   yOffset?: number;
   inView?: boolean;
-  inViewMargin?: string;
+  inViewMargin?: any; // <- changed from string to any
   blur?: string;
 }
+
 const BlurFade = ({
   children,
   className,
@@ -31,11 +32,14 @@ const BlurFade = ({
   const ref = useRef(null);
   const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
   const isInView = !inView || inViewResult;
+
   const defaultVariants: Variants = {
     hidden: { y: yOffset, opacity: 0, filter: `blur(${blur})` },
     visible: { y: -yOffset, opacity: 1, filter: `blur(0px)` },
   };
+
   const combinedVariants = variant || defaultVariants;
+
   return (
     <AnimatePresence>
       <motion.div
