@@ -10,12 +10,14 @@ import React, {
 } from "react";
 
 export function AnimatedListItem({ children }: { children: React.ReactNode }) {
-  const animations = {
-    initial: { scale: 0, opacity: 0 },
-    animate: { scale: 1, opacity: 1, originY: 0 },
-    exit: { scale: 0, opacity: 0 },
-    transition: { type: "spring", stiffness: 350, damping: 40 },
-  };
+const animations = {
+  initial: { scale: 0.95, opacity: 0 },
+  animate: { scale: 1, opacity: 1, originY: 0 },
+  exit: { scale: 0.95, opacity: 0 },
+  transition: { type: "spring", stiffness: 200, damping: 20 },
+};
+
+
 
   return (
     <motion.div {...animations} layout className="mx-auto w-full">

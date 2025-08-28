@@ -11,7 +11,8 @@ interface Item {
   time: string;
 }
 
-let notifications: Item[] = [
+
+export const notifications: Item[] = [
   { name: "Html5", description: "Fawas", time: "2yr ago", image: "/html.png" },
   { name: "Css3", description: "Fawas", time: "2yr ago", image: "/css.png" },
   { name: "Javascript (ES6)", description: "Fawas", time: "2yr ago", image: "/javascript.png" },
@@ -30,8 +31,8 @@ let notifications: Item[] = [
   { name: "Vite/Yarn", description: "Fawas", time: "install ago", image: "/vite.png" },
 ];
 
-// ✅ replicate list for demo scroll effect
-notifications = Array.from({ length: 5 }, () => notifications).flat();
+export const repeatedNotifications = Array.from({ length: 5 }, () => notifications).flat();
+
 
 const Notification = ({ name, description, image, time }: Item) => {
   return (
@@ -68,13 +69,7 @@ const Notification = ({ name, description, image, time }: Item) => {
   );
 };
 
-export function AnimatedListDemo({
-  className,
-  items,
-}: {
-  className?: string;
-  items: Item[];
-}) {
+export function AnimatedListDemo({ className }: { className?: string }) {
   return (
     <div
       className={cn(
@@ -83,7 +78,7 @@ export function AnimatedListDemo({
       )}
     >
       <AnimatedList>
-        {items.map((item, idx) => (
+        {notifications.map((item, idx) => (
           <Notification {...item} key={idx} />
         ))}
       </AnimatedList>
@@ -92,4 +87,3 @@ export function AnimatedListDemo({
     </div>
   );
 }
-

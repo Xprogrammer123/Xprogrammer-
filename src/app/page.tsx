@@ -39,10 +39,11 @@ const skillColors = [
 // Transform skills into the required Item interface
 const skillsData = DATA.skills.map((skill, index) => ({
   name: skill,
-  description: `Proficient in ${skill}`,
+  description: `Experienced with ${skill}`,
   time: `${index + 1}m ago`,
-  image: `/${skill.toLowerCase().replace(/\s+/g, '')}.png`,
+  image: `/${skill.toLowerCase().replace(/\s+/g, "")}.png`,
 }));
+
 export default function Page() {
   return (
     <>
