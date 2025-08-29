@@ -2,7 +2,7 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
-  name: "Fawas Saka",
+  name: "Fawas Saka - Software Developer",
   initials: "FS",
   url: "https://x-portfolio-bice.vercel.app",
   location: "Lagos, Nigeria",
