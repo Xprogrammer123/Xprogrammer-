@@ -43,7 +43,7 @@ export default function ProjectDetailsPage({ params }: { params: { id: string } 
           </Button>
         )}
         <Button  variant="outline">
-          <Link href="/#projects">← Back to Projects</Link>
+          <Link href="/projects">← Back to Projects</Link>
         </Button>
       </div>
     </div>
