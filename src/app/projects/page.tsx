@@ -80,8 +80,8 @@ export default function Projects() {
               <Link href={`mailto:${DATA.contact.email}`}>Send Email</Link>
             </ShimmerButton>
             <InteractiveHoverButton >
-              <Link href={DATA.contact.social.LinkedIn?.url || "#"}>
-                Connect on LinkedIn
+              <Link href={DATA.contact.social.X?.url || "#"}>
+                Connect on X
               </Link>
             </InteractiveHoverButton>
           </div>

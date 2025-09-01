@@ -6,7 +6,7 @@ import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
-import { AnimatedList } from "@/components/magicui/animated-list";
+import { AnimatedListDemo } from "@/components/animated-list";
 import { DotPattern } from "@/components/magicui/dot-pattern";
 import { Meteors } from "@/components/magicui/meteors";
 import { MorphingText } from "@/components/magicui/morphing-text";
@@ -15,21 +15,11 @@ import { ShimmerButton } from "@/components/magicui/shimmer-button";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { SparklesText } from "@/components/magicui/sparkles-text";
 import { SmoothCursor } from "@/components/ui/smooth-cursor";
-import { AnimatedListDemo } from "@/components/animated-list";
 
 const BLUR_FADE_DELAY = 0.04;
 
-// Skills data for AnimatedList
-const skillsData = DATA.skills.map((skill, index) => ({
-  name: skill,
-  description: `Experienced with ${skill}`,
-  time: `${index + 1}m ago`,
-  image: `/${skill.toLowerCase().replace(/\s+/g, "")}.png`,
-}));
-
 export default function Page() {
   const doubledProjects = [...DATA.projects, ...DATA.projects];
-
 
   return (
     <>
@@ -89,7 +79,7 @@ export default function Page() {
         {/* About */}
         <section
           id="about"
-          className="relative py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto overflow-hidden"
+          className="relative py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto overflow-hidden mb-28"
         >
           <Meteors className="absolute inset-0 opacity-30 pointer-events-none" />
 
@@ -118,11 +108,6 @@ export default function Page() {
                 </p>
               </BlurFade>
 
-              <AnimatedList>
-                <div>💻 Building scalable full-stack apps</div>
-                <div>⚡ Real-time monitoring systems</div>
-                <div>🎨 Pixel-perfect UI/UX engineering</div>
-              </AnimatedList>
             </div>
 
             {/* Right */}
@@ -152,16 +137,15 @@ export default function Page() {
         {/* Skills */}
         <section
           id="skills"
-          className="flex flex-col md:flex-row items-center justify-between gap-4 py-4 mb-40"
+          className="grid grid-cols-1 md:grid-cols-2 mb-28"
         >
           <BlurFade delay={BLUR_FADE_DELAY * 8}>
-            <SparklesText className="sm:text-7xl text-4xl">My Skills</SparklesText>
+            <SparklesText className="sm:text-7xl text-4xl text-center justify-center">
+              My Skills
+            </SparklesText>
           </BlurFade>
 
-          <AnimatedListDemo
-            className="flex flex-wrap gap-2 max-w-[400px]"
-            items={skillsData}
-          />
+          <AnimatedListDemo className="mx-auto" />
         </section>
 
         {/* Work */}
@@ -196,22 +180,22 @@ export default function Page() {
             </SparklesText>
           </BlurFade>
 
-        <div className="slider relative w-full max-w-5xl mx-auto overflow-hidden rounded-xl">
-        <div className="slide-track flex animate-slide">
-          {doubledProjects.map((project, i) => (
-            <div
-              key={i}
-              className="slide min-w-full flex justify-center items-center"
-            >
-              <img
-                src={project.image}
-                alt={project.title || "project"}
-                className="w-full h-[400px] object-cover rounded-xl"
-              />
+          <div className="slider relative w-full max-w-5xl mx-auto overflow-hidden rounded-xl">
+            <div className="slide-track flex animate-slide">
+              {doubledProjects.map((project, i) => (
+                <div
+                  key={i}
+                  className="slide min-w-full flex justify-center items-center"
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title || "project"}
+                    className="w-full h-[400px] object-cover rounded-xl"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
 
           <div className="flex justify-center mt-8">
             <Link href="/projects">
@@ -220,24 +204,26 @@ export default function Page() {
           </div>
         </section>
 
- <section className="py-12 px-4 text-center">
-      
-      <div className="max-w-2xl mx-auto bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl shadow-md">
-        <p className="text-lg italic text-gray-700 dark:text-gray-300">
-          “The only way to do great work is to love what you do”
-        </p>
-        <p className="mt-4 text-sm font-medium text-gray-900 dark:text-gray-400">
-        — Steve Jobs
-        </p>
-      </div>
+        {/* Quote */}
+        <section className="py-12 px-4 text-center">
+          <div className="max-w-2xl mx-auto bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl shadow-md">
+            <p className="text-lg italic text-gray-700 dark:text-gray-300">
+              “The only way to do great work is to love what you do”
+            </p>
+            <p className="mt-4 text-sm font-medium text-gray-900 dark:text-gray-400">
+              — Steve Jobs
+            </p>
+          </div>
+        </section>
 
-
-    </section>
         {/* Contact */}
-        <section id="contact" className="relative py-12 space-y-6">
+        <section id="contact" className="relative py-12 space-y-8">
           <BlurFade delay={BLUR_FADE_DELAY * 14}>
-            <h2 className="text-2xl font-bold text-center">Get in Touch</h2>
+            <SparklesText className="text-center justify flex-1 mb-10 sm:text-7xl text-4xl">
+              Get in Touch
+            </SparklesText>
           </BlurFade>
+
           <TextAnimate
             animation="fadeIn"
             by="word"
@@ -245,15 +231,52 @@ export default function Page() {
             duration={0.3}
             className="mx-auto max-w-[600px] text-center text-muted-foreground my-4"
           >
-            Want to chat? Shoot me a DM on Twitter or connect via GitHub/Email.
+            Want to build something? Send me a quick WhatsApp message 👇
           </TextAnimate>
-          <div className="flex justify-center gap-4">
+
+          {/* WhatsApp Contact Form */}
+          <div className="relative max-w-md mx-auto bg-white dark:bg-black p-6 rounded-2xl shadow-md space-y-4 border border-gray-200 dark:border-gray-800">
+            <input
+              type="text"
+              id="name"
+              placeholder="Hi, I'm ..."
+              className="w-full border border-black dark:border-white rounded-xl p-3 bg-transparent text-black dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+            />
+            <input
+              type="text"
+              id="project"
+              placeholder="I want to build ..."
+              className="w-full border border-black dark:border-white rounded-xl p-3 bg-transparent text-black dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+            />
+
+            <div className="relative">
+              <span className="absolute inset-0 flex items-center justify-center text-5xl font-extrabold text-black/5 dark:text-white/5 select-none pointer-events-none">
+                xprogrammer
+              </span>
+              <button
+                onClick={() => {
+                  const name = (document.getElementById("name") as HTMLInputElement)?.value;
+                  const project = (document.getElementById("project") as HTMLInputElement)?.value;
+                  const phoneNumber = "2349138983178";
+                  const message = `Hi, I'm ${name}. I want to build ${project}.`;
+                  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                  window.open(url, "_blank");
+                }}
+                className="relative w-full bg-black dark:bg-white text-white dark:text-black py-3 rounded-xl font-semibold hover:opacity-90 transition"
+              >
+                Send to WhatsApp
+              </button>
+            </div>
+          </div>
+
+          {/* Other Contact Options */}
+          <div className="flex justify-center gap-4 pt-6">
             <ShimmerButton>
               <Link href={`mailto:${DATA.contact.email}`}>Send Email</Link>
             </ShimmerButton>
             <InteractiveHoverButton>
-              <Link href={DATA.contact.social.LinkedIn?.url || "#"}>
-                Connect on LinkedIn
+              <Link href={DATA.contact.social.X?.url || "#"}>
+                Connect on X
               </Link>
             </InteractiveHoverButton>
           </div>

@@ -15,20 +15,20 @@ interface Item {
 export const notifications: Item[] = [
   { name: "Html5", description: "Fawas", time: "2yr ago", image: "/html.png" },
   { name: "Css3", description: "Fawas", time: "2yr ago", image: "/css.png" },
-  { name: "Javascript (ES6)", description: "Fawas", time: "2yr ago", image: "/javascript.png" },
-  { name: "Typescript", description: "Fawas", time: "1yr ago", image: "/typescript.png" },
-  { name: "React Js", description: "Fawas", time: "2yr ago", image: "/reactjs.png" },
-  { name: "Next Js", description: "Fawas", time: "8months ago", image: "/nextjs.png" },
   { name: "Tailwindcss", description: "Fawas", time: "2yr ago", image: "/tailwind.png" },
   { name: "Bootstrap", description: "Fawas", time: "2yr ago", image: "/bootstrap.png" },
-  { name: "Supabase", description: "Fawas", time: "1yr ago", image: "/supabase.jpg" },
-  { name: "Firebase", description: "Fawas", time: "10months ago", image: "/firebase.png" },
   { name: "Clerk", description: "Fawas", time: "7months ago", image: "/clerk.png" },
   { name: "Git/Github", description: "Fawas", time: "2yr ago", image: "/git.png" },
   { name: "Vscode", description: "Fawas", time: "2yr ago", image: "/vscode.png" },
   { name: "Linux (Parrot OS)", description: "Fawas", time: "10months ago", image: "/parrot.png" },
   { name: "Vercel/Pxxl space", description: "Fawas", time: "hosting ago", image: "/vercel.png" },
   { name: "Vite/Yarn", description: "Fawas", time: "install ago", image: "/vite.png" },
+  { name: "Supabase", description: "Fawas", time: "1yr ago", image: "/supabase.jpg" },
+  { name: "Firebase", description: "Fawas", time: "10months ago", image: "/firebase.png" },
+  { name: "Javascript (ES6)", description: "Fawas", time: "2yr ago", image: "/javascript.png" },
+  { name: "Typescript", description: "Fawas", time: "1yr ago", image: "/typescript.png" },
+  { name: "React Js", description: "Fawas", time: "2yr ago", image: "/reactjs.png" },
+  { name: "Next Js", description: "Fawas", time: "8months ago", image: "/nextjs.png" },
 ];
 
 export const repeatedNotifications = Array.from({ length: 5 }, () => notifications).flat();
